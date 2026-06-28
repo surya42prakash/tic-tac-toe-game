@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <h1>LET'S PLAY TIC TAC TOE</h1>
+    <h2>Player O's Turn</h2>
+
+    <div class="main-container">
+      <div class="game-section">
+        <div class="game">
+          <div class="win-line"></div>
+
+          <button class="button"></button>
+          <button class="button"></button>
+          <button class="button"></button>
+
+          <button class="button"></button>
+          <button class="button"></button>
+          <button class="button"></button>
+
+          <button class="button"></button>
+          <button class="button"></button>
+          <button class="button"></button>
+        </div>
+
+        <div class="buttons">
+          <button id="undo-btn">↩ Undo</button>
+          <button id="reset-btn">🔄 Reset Game</button>
+          <button id="redo-btn">↪ Redo</button>
+        </div>
+      </div>
+
+      <!-- SCOREBOARD -->
+      <div class="score-board">
+        <h3>🏆 SCORE BOARD</h3>
+
+        <div class="score-row">
+          <span>Player O</span>
+          <span id="o-score">0</span>
+        </div>
+
+        <div class="score-row">
+          <span>Player X</span>
+          <span id="x-score">0</span>
+        </div>
+
+        <div class="score-row">
+          <span>🤝 Draw</span>
+          <span id="draw-score">0</span>
+        </div>
+
+        <div class="score-row">
+          <span>🎮 Total Games</span>
+          <span id="total-games">0</span>
+        </div>
+
+        <div class="score-row">
+          <span id="last-winner">-</span>
+        </div>
+
+        <button id="win-btn">🏆 Show Overall Winner</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
