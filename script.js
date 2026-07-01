@@ -72,6 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
     redoStack.push(lastMove);
 
     btn[lastMove.index].innerText = "";
+    btn[lastMove.index].style.backgroundColor = "";
+    btn[lastMove.index].style.color = "";
     btn[lastMove.index].disabled = false;
 
     isOTurn = lastMove.player === "O";
@@ -86,6 +88,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     btn[move.index].innerText = move.player;
     btn[move.index].disabled = true;
+
+    // Restore colors
+    if (move.player === "O") {
+      btn[move.index].style.backgroundColor = "#782B4E";
+      btn[move.index].style.color = "#95b8d1";
+    } else {
+      btn[move.index].style.backgroundColor = "#223558";
+      btn[move.index].style.color = "#d6eadf";
+    }
 
     history.push(move);
 
@@ -119,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // FOR CHECK WIN / DRAW
   function checkWinner() {
     let winner = null;
+    let winningPattern = null;
 
     for (let pattern of winArray) {
       const [a, b, c] = pattern;
@@ -129,14 +141,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (p1 !== "" && p1 === p2 && p2 === p3) {
         winner = p1;
+        winningPattern = pattern;
         break;
       }
     }
 
     // WIN
     if (winner) {
-      gameEnded = true;
-      turnText.innerText = `👑 Player ${winner} Wins!`;
+      if (winner) {
+        gameEnded = true;
+
+        const [a, b, c] = winningPattern;
+
+        btn[a].style.backgroundColor = "#00391d";
+        btn[b].style.backgroundColor = "#00391d";
+        btn[c].style.backgroundColor = "#00391d";
+        turnText.innerText = `👑 Player ${winner} Wins!`;
+      }
 
       updateScore(winner);
 
