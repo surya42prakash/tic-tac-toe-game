@@ -66,7 +66,7 @@ h2 {
 
 .button:hover {
   transform: scale(1.05);
-  background: #4f6b5d;
+  background: linear-gradient(135deg, #581d80, #0f8033);
   color: white;
   box-shadow: 0 0 25px rgba(0, 255, 120, .8);
 }
@@ -112,6 +112,7 @@ h2 {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
+
 .score-board {
   position: absolute;
   right: 60px;
@@ -155,7 +156,6 @@ h2 {
 
   background: linear-gradient(135deg, #ca6894, #fac7c7);
   color: black;
-
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
@@ -168,16 +168,6 @@ h2 {
 
 #win-btn:active {
   transform: scale(0.95);
-}
-
-.win-line {
-  position: absolute;
-  width: 0;
-  height: 8px;
-  background: red;
-  border-radius: 20px;
-  transition: .5s;
-  z-index: 100;
 }
 
 @keyframes float {
@@ -209,7 +199,31 @@ h2 {
     font-size: 1.6rem;
   }
 
+  .winner {
+    animation: winnerBlink .4s ease-in-out 4;
+  }
+
+  @keyframes winnerBlink {
+
+    0%,
+    100% {
+      background: #FFD700;
+      color: #000;
+      transform: scale(1.08);
+      box-shadow: 0 0 20px gold;
+    }
+
+    50% {
+      background: #223558;
+      color: white;
+      transform: scale(1);
+      box-shadow: none;
+    }
+
+  }
+
   h2 {
     font-size: 1.2rem;
   }
 }
+
